@@ -7,6 +7,7 @@
     "declaration": false,
     "module": "es2015",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
@@ -17,6 +18,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "engine": [
+        "dist/engine"
+      ],
+      "engine/*": [
+        "dist/engine/*"
+      ]
+    }
   }
 }

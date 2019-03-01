@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="column">
+        <h3>Words to show up</h3>
+        <mat-checkbox (change)="onAvailableCheckboxChange($event, index)" *ngFor="let audioWord of availableWords; index as index">{{audioWord.word}}</mat-checkbox>
+    </div>
+    <div class="column">
+        <h3>Selectable words</h3>
+        <mat-checkbox (change)="onSelectedCheckboxChange($event, index)" *ngFor="let audioWord of selectableWords">{{audioWord.word}}</mat-checkbox>
+    </div>
+</div>
+<button (click)="onProceed()" [disabled]="selectedWords.length === 0" mat-button>PROCEED</button>

@@ -133,6 +133,70 @@
           }
         }
       }
+    },
+    "engine": {
+      "root": "projects/engine",
+      "sourceRoot": "projects/engine/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "demobuild": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/engine",
+            "index": "projects/engine/src/demo.html",
+            "main": "projects/engine/src/demo.ts",
+            "polyfills": "projects/engine/src/polyfills.ts",
+            "tsConfig": "projects/engine/tsconfig.lib.json",
+            "assets": [
+              "projects/engine/src/favicon.ico",
+              "projects/engine/src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "engine:demobuild"
+          },
+          "configurations": {
+          }
+        },
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/engine/tsconfig.lib.json",
+            "project": "projects/engine/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/engine/src/test.ts",
+            "tsConfig": "projects/engine/tsconfig.spec.json",
+            "karmaConfig": "projects/engine/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/engine/tsconfig.lib.json",
+              "projects/engine/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "learning"
